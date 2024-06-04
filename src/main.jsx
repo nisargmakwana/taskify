@@ -44,11 +44,11 @@ const router = createBrowserRouter([
 		errorElement: <ErrorPage />,
 	},
 	{
-		path: "home",
+		path: "/home",
 		element: (
-			 <AuthLayout authentication>
 			<Home />
-			</AuthLayout> 
+			// <AuthLayout authentication>
+			// </AuthLayout>
 		),
 
 		errorElement: <ErrorPage />,
