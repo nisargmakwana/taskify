@@ -5,8 +5,8 @@ import signup from "../img/signup.svg";
 function Signup() {
 	return (
 		<>
-			<div className="grid grid-cols-[1fr_1.3fr] items-center justify-items-center">
-				<img src={signup} alt="" className="max-h-screen" />
+			<div className="md:grid md:grid-cols-[1fr_1.3fr] md:items-center md:justify-items-center">
+				<img src={signup} alt="" className=" text-center max-w-screen" />
 				<SignupComp />
 			</div>
 		</>

@@ -4,9 +4,9 @@ import signin from "../img/login.svg";
 
 function Login() {
 	return (
-		<div className="grid grid-cols-[1.3fr_1fr] items-center justify-items-center">
+		<div className="md:grid md:grid-cols-[1.3fr_1fr] md:items-center md:justify-items-center">
 			<LoginComp />
-			<img src={signin} className="max-h-screen" />
+			<img src={signin} className="max-h-screen text-center" />
 		</div>
 	);
 }

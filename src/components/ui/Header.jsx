@@ -18,7 +18,7 @@ function Header({ user }) {
 	return (
 		<>
 			<nav className="grid grid-cols-[1.2fr_3.5fr_1fr_0.2fr] text-white bg-[#0077B6] items-center justify-items-center">
-				<div className=" py-[0.8rem]">
+				<div className="py-[0.8rem] px-[1.5rem]">
 					<Link
 						to="/"
 						className="text-white font-semibold text-[1.2rem] hover:underline">

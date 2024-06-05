@@ -33,23 +33,22 @@ function TaskList() {
 	}, []);
 
 	return storeTasks.length !== 0 ? (
-		<>
-			<div className="flex mt-[2rem] mb-[2rem]">
-				<div className="w-[2.4rem]"></div>
-				<div className="w-[36rem]">
-					<p>Title</p>
-				</div>
-				<div>
-					<p className="w-[11rem]">Due Date</p>
-				</div>
-				<div className="w-[7rem] ml-[1.2rem]">{""}</div>
+		<div className="mx-auto px-[1.2rem]">
+			<div className="grid grid-cols-[1fr_4.5fr_4.5fr] mb-[1.5rem] mt-[1rem]">
+				<div className=""></div>
+
+				<p>Title</p>
+
+				<p className="">Due Date</p>
+
+				<div className="">{""}</div>
 			</div>
 
 			{storeTasks.map((todo) => (
 				<div
 					key={todo.$id}
-					className="flex items-center text-gray-700 text-[0.95rem] ">
-					<div className="w-[2.4rem] ml-[0.2rem]">
+					className="grid grid-cols-[1fr_4.5fr_4.5fr] text-gray-700 text-[0.95rem] ">
+					<div className="">
 						<input
 							type="checkbox"
 							checked={todo.completed}
@@ -64,35 +63,25 @@ function TaskList() {
 							disabled={isEditing}
 						/>
 					</div>
-					<input
-						type="text"
-						className={`${todo.completed ? "line-through" : ""}  w-[36rem]`}
-						value={todo.task}
-						readOnly={!isEditing}
-					/>
+					<div className={`${todo.completed ? "line-through" : ""}`}>
+						{todo.task}
+					</div>
 
-					<p className="w-[11rem]">
+					<div className="flex gap-[1rem]">
 						{new Date(todo.date).toLocaleDateString("en-uk", dateOptions)}
-					</p>
-					<div className="w-[7rem] flex gap-[1rem]  ">
-						<button
-							onClick={async () => {
-								await appwriteService.deleteTask(todo.$id);
-								dispatch(removeTask(todo.$id));
-							}}>
-							<ion-icon name="trash-outline"></ion-icon>
-						</button>
-						{/* <button
-							onClick={() => {
-								setIsEditing(true);
-								dispatch(addEditingTaskToStore(todo));
-							}}>
-							<ion-icon name="create-outline"></ion-icon>
-						</button> */}
+						<div>
+							<button
+								onClick={async () => {
+									await appwriteService.deleteTask(todo.$id);
+									dispatch(removeTask(todo.$id));
+								}}>
+								<ion-icon name="trash-outline"></ion-icon>
+							</button>
+						</div>
 					</div>
 				</div>
 			))}
-		</>
+		</div>
 	) : null;
 }
 
