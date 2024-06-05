@@ -21,7 +21,7 @@ function Header({ user }) {
 				<div className=" py-[0.8rem]">
 					{/* <Link to="#" className="text-white font-bold hover:underline"> */}
 					<div className=" font-semibold text-[1.2rem] hover:underline">
-						To Do
+						Taskify: To Do
 					</div>
 					{/* </Link> */}
 				</div>

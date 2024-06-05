@@ -25,6 +25,12 @@ function TaskInput() {
 	const userData = useSelector((state) => state.auth.userData);
 	const dispatch = useDispatch();
 	const editingTask = useSelector((state) => state.auth.editingTask);
+	const todayDate = Intl.DateTimeFormat("en-US", {
+		year: "numeric",
+		month: "numeric",
+		day: "numeric",
+	}).format(new Date());
+	console.log(todayDate);
 
 	const addHandler = async (data) => {
 		// if (editingTask) {
@@ -39,7 +45,7 @@ function TaskInput() {
 		const task = await appwriteService.createTask({
 			...data,
 			userid: userData.$id,
-			date: date,
+			date: date ? date : todayDate,
 			completed: false,
 		});
 		dispatch(addTask(task));
