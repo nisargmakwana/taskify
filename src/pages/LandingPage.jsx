@@ -1,8 +1,26 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Card, CardHeader, CardTitle, CardDescription } from "../index";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import authService from "../../appwrite/authService";
+import { login, logout } from "../../store/appSlice";
 
 function LandingPage() {
+	const dispatch = useDispatch();
+	useEffect(() => {
+		async function authData() {
+			const user = await authService.getCurrentUser();
+			if (user) {
+				dispatch(login(user));
+			} else {
+				dispatch(logout());
+			}
+		}
+		authData();
+	}, []);
+	const authStatus = useSelector((state) => state.auth.status);
+	console.log(authStatus);
 	return (
 		<>
 			<div className="grid grid-cols-[1fr_0.7fr_1fr] justify-items-center items-center">
@@ -26,9 +44,18 @@ function LandingPage() {
 							</CardDescription>
 						</CardHeader>
 						<div className="inline-block bg-[#0077b6] hover:bg-[#0096c7] align-items-center px-[1.2rem] py-[0.4rem] rounded-md ">
-							<Link to="/login" className="text-white ">
+							{authStatus ? (
+								<Link to="/home" className="text-white ">
+									Get Started!
+								</Link>
+							) : (
+								<Link to="/login" className="text-white ">
+									Get Started!
+								</Link>
+							)}
+							{/* <Link to="/login" className="text-white ">
 								Get Started!
-							</Link>
+							</Link> */}
 						</div>
 					</div>
 				</div>

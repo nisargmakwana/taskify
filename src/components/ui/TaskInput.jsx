@@ -30,7 +30,6 @@ function TaskInput() {
 		month: "numeric",
 		day: "numeric",
 	}).format(new Date());
-	console.log(todayDate);
 
 	const addHandler = async (data) => {
 		// if (editingTask) {

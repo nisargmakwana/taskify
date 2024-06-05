@@ -19,11 +19,11 @@ function Header({ user }) {
 		<>
 			<nav className="grid grid-cols-[1.2fr_3.5fr_1fr_0.2fr] text-white bg-[#0077B6] items-center justify-items-center">
 				<div className=" py-[0.8rem]">
-					{/* <Link to="#" className="text-white font-bold hover:underline"> */}
-					<div className=" font-semibold text-[1.2rem] hover:underline">
+					<Link
+						to="/"
+						className="text-white font-semibold text-[1.2rem] hover:underline">
 						Taskify: To Do
-					</div>
-					{/* </Link> */}
+					</Link>
 				</div>
 				{/* <div>
 					<form className="flex">
